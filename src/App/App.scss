@@ -1,0 +1,32 @@
+.app {
+  font-family: 'Gerbera', sans-serif;
+  display: flex;
+  flex-direction: column;
+  column-gap: 50px;
+  background-color: #EBEAE8;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: space-between;
+  animation: open .8s ease;
+  
+  @keyframes open {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+    
+  &__content {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    overflow-y: auto;
+  }
+}

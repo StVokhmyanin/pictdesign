@@ -1,0 +1,33 @@
+@import './Vendor/normalize.css';
+@import './Vendor/fonts/fonts.css';
+@import './Vendor/fonts/icons.css';
+@import './scss/breakpoints/_breakpoints.scss';
+@import './scss/variables/_variables.scss';
+@import './App/App.scss';
+@import './pages/Contacts/Contacts.scss';
+@import './pages/About/About.scss';
+@import './Components/BannerInfo/BannerInfo.scss';
+@import './Components/Card/Card.scss';
+@import './Components/Header/Header.scss';
+@import './Components/CategoryList/CategoryList.scss';
+@import './Components/Header/Navigation.scss';
+@import './Components/NavigationLink/NavigationLink.scss';
+@import './pages/Project/Project.scss';
+@import './Components/Footer/footer.scss';
+@import './Components/Form/Form.scss';
+@import './Components/FilteredProjects/FilteredProjects.scss';
+
+h1, h2, h3, h4, h5, h6, p, blockquote, figure {
+  margin: 0;
+}
+
+ul, ol, dl {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}

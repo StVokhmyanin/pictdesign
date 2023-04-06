@@ -1,38 +1,53 @@
 {
-  "name": "my_react_theme",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@devloco/react-scripts-wptheme": "^3.4.1-wp.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "scripts": {
-    "crabuild": "react-scripts build",
-    "craeject": "react-scripts eject",
-    "crastart": "react-scripts start",
-    "cratest": "react-scripts test",
-    "build": "wptheme-scripts build",
-    "start": "wptheme-scripts start",
-    "wpbuild": "wptheme-scripts wpbuild",
-    "wpstart": "wptheme-scripts wpstart"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "my_react_theme",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@devloco/react-scripts-wptheme": "^3.4.1-wp.1",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.5.0",
+        "@testing-library/user-event": "^7.2.1",
+        "axios": "^1.3.4",
+        "imagemin": "^8.0.1",
+        "imagemin-webp": "^8.0.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-helmet": "^6.1.0",
+        "react-router-dom": "^6.9.0",
+        "sass": "^1.60.0",
+        "styled-components": "^5.3.9",
+        "swiper": "^9.1.1"
+    },
+    "scripts": {
+        "preprod": "node webpack.config.js",
+        "prod": "npm webpack",
+        "crabuild": "react-scripts build",
+        "craeject": "react-scripts eject",
+        "crastart": "react-scripts --openssl-legacy-provider start",
+        "cratest": "react-scripts --openssl-legacy-provider test",
+        "build": "wptheme-scripts --openssl-legacy-provider build",
+        "start": "wptheme-scripts --openssl-legacy-provider start",
+        "wpbuild": "wptheme-scripts wpbuild",
+        "wpstart": "wptheme-scripts wpstart"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "homepage": "/pictdesign/wp-content/themes/my_react_theme",
+    "browserLaunchTo": "http://localhost/pictdesign/",
+    "devDependencies": {
+        "img-optimize-loader": "^1.0.7"
+    }
 }
