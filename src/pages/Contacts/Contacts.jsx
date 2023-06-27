@@ -1,65 +1,17 @@
 import React from "react";
 import Form from "../../Components/Form/Form";
-import telegram from "../../Assets/Images/telegram.svg";
-import whatsapp from "../../Assets/Images/whatsapp.svg";
-import instagram from "../../Assets/Images/instagram.svg";
-import email from "../../Assets/Images/email.svg";
+import { contacts, inputs } from "../../data/data";
+import useTranslate from "../../hooks/use-translate";
 
 const Contacts = ({ onSubmit, error, clearError }) => {
-  const contacts = [
-    {
-      icon: whatsapp,
-      link: "https://wa.link/ur25zn",
-    },
-    {
-      icon: telegram,
-      link: "https://t.me/pictdesign",
-    },
-    {
-      icon: instagram,
-      link: "https://instagram.com/pict.agency",
-    },
-    {
-      icon: email,
-      link: "mailto:ask@pict.design",
-    },
-  ];
 
-  const inputs = [
-    {
-      id: "name",
-      name: "name",
-      type: "text",
-      placeholder: "Ваше имя",
-      required: true,
-      minLength: 2,
-      pattern: "^([а-яА-Я]|s)*$",
-    },
-    {
-      id: "phone",
-      name: "phone",
-      type: "mobile",
-      placeholder: "Номер телефона",
-      pattern: "+7(d{3})d{3}-d{2}-d{2}",
-      required: true,
-      minLength: 11,
-    },
-    {
-      id: "email",
-      name: "email",
-      type: "email",
-      placeholder: "E-mail",
-      required: true,
-      minLength: 6,
-      pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$",
-    },
-  ];
+  const { t, oT } = useTranslate();
 
   return (
     <section className="contacts">
       <div className="contacts__wrapper">
-        <h1>Контакты</h1>
-        <p>Свяжитесь с нами любым удобным для Вас способом:</p>
+        <h1>{t('contact.title')}</h1>
+        <p>{t('contact.callus')}</p>
         <ul>
           {contacts.map((contact, i) => {
             return (
@@ -72,10 +24,11 @@ const Contacts = ({ onSubmit, error, clearError }) => {
           })}
         </ul>
         <h2>
-          Мы можем сами связаться с вами, если вы оставите свои контакты :)
+          {t('contact.form')}
         </h2>
         <Form
           inputs={inputs}
+          buttonText={t('contact.button')}
           onSubmit={onSubmit}
           error={error}
           clearError={clearError}

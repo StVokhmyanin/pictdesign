@@ -23,7 +23,7 @@
         "prod": "npm webpack",
         "crabuild": "react-scripts build",
         "craeject": "react-scripts eject",
-        "crastart": "react-scripts --openssl-legacy-provider start",
+        "crastart": "react-scripts",
         "cratest": "react-scripts --openssl-legacy-provider test",
         "build": "wptheme-scripts --openssl-legacy-provider build",
         "start": "wptheme-scripts --openssl-legacy-provider start",
@@ -46,7 +46,7 @@
         ]
     },
     "homepage": "/pictdesign/wp-content/themes/my_react_theme",
-    "browserLaunchTo": "http://localhost/pictdesign/",
+    "browserLaunchTo": "http://localhost/",
     "devDependencies": {
         "img-optimize-loader": "^1.0.7"
     }

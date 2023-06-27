@@ -1,8 +1,11 @@
 import React from "react";
 import { useFormWithValidation } from "../../Utils/useForm";
+import useTranslate from "../../hooks/use-translate";
 
-const Form = ({inputs, error, onSubmit, clearError}) => {
+const Form = ({inputs, buttonText, error, onSubmit, clearError}) => {
 
+  const { oT } = useTranslate();
+  
   const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
   const handleSubmit = (evt) => {
@@ -31,7 +34,7 @@ const Form = ({inputs, error, onSubmit, clearError}) => {
                 required={input.required}
                 pattern={input.pattern}
                 minLength={input.minLength}
-                placeholder={input.placeholder}
+                placeholder={oT(input.placeholder.ru, input.placeholder.en)}
               />
               <span className="form__error">{errors[input.name]}</span>
             </div>
@@ -48,7 +51,7 @@ const Form = ({inputs, error, onSubmit, clearError}) => {
         </button>
       )}
       <button className="form__submit" type="submit" disabled={!isValid}>
-        Hапишите мне
+        {buttonText}
       </button>
     </form>
   );

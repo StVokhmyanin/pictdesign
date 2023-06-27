@@ -83,6 +83,33 @@
       opacity: .6;
     }
   }
+
+  &__cat-container {
+    opacity: 0;
+    position: absolute;
+    top: 60px;
+    left: -50px;
+    transform: rotate(90deg);
+    visibility: hidden;
+    transition: opacity .3s linear;
+
+    @include desktop {
+      transform: none;
+      top: 0;
+      left: 0;
+    }
+  
+    &_active {
+      visibility: visible;
+      opacity: 1;
+      z-index: 100;
+  
+      @include desktop {
+        padding-top: 20px;
+        position: relative;
+      }
+    }  
+  }
 }
 
 @include desktop {

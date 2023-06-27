@@ -19,9 +19,10 @@ const StyledMainSwiper = styled.div`
     padding: 150px 8% 200px 8%;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(12, 1fr);
 
     @media screen and (max-width: 1023px) {
+      grid-template-columns: repeat(4, 1fr);
       padding-bottom: 100px;
   }
   }
@@ -32,11 +33,12 @@ const StyledMainSwiper = styled.div`
     width: 100%;
     position: absolute;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     bottom: 160px;
     z-index: 100;
 
     @media screen and (max-width: 1023px) {
+      grid-template-columns: repeat(4, 1fr);
       bottom: 60px;
       box-sizing: content-box;
       max-width: 500px;
@@ -44,12 +46,14 @@ const StyledMainSwiper = styled.div`
   }
 
   .swiper-pagination {
-    grid-column: 2/3;
+    grid-column: 3/8;
     position: relative;
     max-width: 160px;
 
     @media screen and (max-width: 1023px) {
-      grid-column: 1/1;
+      max-width: none;
+      text-align: left;
+      grid-column: 1/4;
     }
   }
 
@@ -135,7 +139,7 @@ const StyledMainSwiper = styled.div`
 
   .slider__info {
     z-index: 15;
-    grid-column: 2/4;
+    grid-column: 3/8;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

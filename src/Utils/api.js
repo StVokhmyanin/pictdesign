@@ -31,6 +31,10 @@ class Api {
   async getProject(slug) {
     return axios.get(`${this.baseUrl}/posts?slug=${slug}&_embed`);
   }
+
+  async getRecommendProjects(catId, id) {
+    return axios.get(`${this.baseUrl}/posts?_embed&per_page=100&categories=${catId.join(',')}&exclude=${id}`);
+  }
    
   async sendForm(body) {
     return fetch("https://api.sendinblue.com/v3/contacts", {

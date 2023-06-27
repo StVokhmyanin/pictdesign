@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useTranslate from "../../hooks/use-translate";
 
 const Card = ({ card }) => {
-  const { title, slug, _embedded } = card;
+
+  const { title, acf, slug, _embedded } = card;
+
+  const { oT } = useTranslate();
 
   return (
     <li className="card">
@@ -15,7 +19,7 @@ const Card = ({ card }) => {
             />
         </div>
         <div className="card__info">
-          <h3 className="card__title">{title["rendered"]}</h3>
+          <h3 className="card__title">{oT(title.rendered, acf.eng_title)}</h3>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24.901"
@@ -35,7 +39,7 @@ const Card = ({ card }) => {
               />
             </g>
           </svg>
-          <p className="card__category">{_embedded["wp:term"]["0"]["0"]["name"]}</p>
+          <p className="card__category">{oT(_embedded["wp:term"]["0"]["0"]["name"], _embedded["wp:term"]["0"]["0"]["acf"].eng)}</p>
         </div>
       </Link>
     </li>

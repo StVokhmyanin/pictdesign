@@ -3,8 +3,7 @@
   max-width: 1920px;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: "empty form form empty1";
+  grid-template-columns: repeat(12, 1fr);
   align-items: flex-start;
   animation: open .8s ease;
   width: 100%;
@@ -20,6 +19,7 @@
   }
 
   @include desktop {
+    grid-template-columns: repeat(4, 1fr);
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -27,12 +27,15 @@
   }
 
   &__wrapper {
-    grid-area: form;
+    grid-column: 3/8;
+
+    @include desktop {
+      grid-column: 1/4;
+    }
   }
 
   h1 {
     @include adaptive-font(60, 38);
-
   }
 
   p {

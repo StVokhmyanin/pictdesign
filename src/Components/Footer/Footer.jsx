@@ -1,86 +1,52 @@
 import React from "react";
 import NavigationLink from "../NavigationLink/NavigationLink";
-import FooterLogo from "../FooterLogo/FooterLogo"; 
-import { CategoryContext } from "../../App/App";
-import { useContext } from "react";
+import FooterLogo from "../FooterLogo/FooterLogo";
+import useTranslate from "../../hooks/use-translate";
+import CategoryList from "../CategoryList/CategoryList";
+import { footerContacts } from "../../data/data";
 
-const Footer = () => {
+const Footer = ({categories}) => {
 
-  const categories = useContext(CategoryContext);
-
-  const contacts = [
-    {
-      title: 'Telegram',
-      link: 'https://t.me/pictdesign',
-    },
-    {
-      title: 'WhatsApp',
-      link: 'https://t.me/pictdesign',
-    },
-    {
-      title: 'Instagram',
-      link: 'https://t.me/pictdesign',
-    },
-    {
-      title: 'E-mail',
-      link: 'https://t.me/pictdesign',
-    }
-  ]
+  const { t } = useTranslate();
 
   return (
     <footer className="footer">
       <nav className="footer__nav-list">
-        <h3 className="footer__list-title">Проекты</h3>
+        <h3 className="footer__list-title">{t('projects.title')}</h3>
         <ul className="footer__list">
-          <li>
-            <NavigationLink title="Все" link="/">
-              Все
-            </NavigationLink>
-          </li>
-          {categories.map((category, i) => {
-            return (
-              <li key={i}>
-                <NavigationLink title={category.name} link={category.slug}>
-                  {category.name}
-                </NavigationLink>
-              </li>
-            )
-          })}
+          <CategoryList categories={categories} />
         </ul>
       </nav>
-      
       <nav className="footer__nav-list">
         <h3 className="footer__list-title">
-          <NavigationLink title="Контакты" link="/Contact">
-            Контакты
-          </NavigationLink>
+          <NavigationLink title={t('contact.title')} link="/Contact" />
         </h3>
         <ul className="footer__list">
-          {contacts.map((contact, i) => {
+          {footerContacts.map((contact, i) => {
             return (
               <li key={i}>
-                <NavigationLink title={contact.title} link={contact.link} target="_blank">
-                  {contact.title}
-                </NavigationLink>
+                <NavigationLink
+                  title={contact.title}
+                  link={contact.link}
+                  target="_blank"
+                />
               </li>
-            )
+            );
           })}
         </ul>
       </nav>
       <nav className="footer__nav-list">
         <h3 className="footer__list-title">
-          <NavigationLink title="О нас" link="/about">
-            О нас
-          </NavigationLink>
+          <NavigationLink title={t('about.title')} link="/about" />
         </h3>
       </nav>
       <nav className="footer__nav-list">
         <FooterLogo />
       </nav>
       <ul className="footer__list footer__list_mobile">
-        <li>ИП Вохмянина М.А.</li>
-        <li>ИНН 501006590538</li>
-        <li>ОГРНИП 316435000087993</li>
+        <li>{t('company')}</li>
+        <li>{t('inn')} 501006590538</li>
+        <li>{t('ogrnip')} 316435000087993</li>
       </ul>
     </footer>
   );

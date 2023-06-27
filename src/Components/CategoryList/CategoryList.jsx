@@ -1,27 +1,21 @@
 import React, { useContext } from "react";
 import NavigationLink from "../NavigationLink/NavigationLink";
-import { LanguagesContext } from "../../App/App";
-import { useLanguage } from "../../hooks/useLanguage";
+import useTranslate from "../../hooks/use-translate";
 
-const CategoryList = ({ categories, active }) => {
-  const language = useContext(LanguagesContext);
-  const link = useLanguage("Все проекты", "All projects");
+const CategoryList = ({categories}) => {
+
+  const { t, oT } = useTranslate();
 
   return (
-    <ul className={`category-list ${active ? "category-list_active" : ""}`}>
+    <ul className='category-list'>
       <li className="navigation__item">
-        <NavigationLink title={link} link="/" />
+        <NavigationLink title={t('all')} link="/" />
       </li>
       {categories.map((category) => {
         return (
           <li key={category.id} className="navigation__item">
             <NavigationLink
-              title={() => {
-                if (language === "ru") {
-                  return category.name;
-                }
-                return category.acf["eng_version"];
-              }}
+              title={oT(category.name, category.acf["eng"])}
               link={`/${category.slug}`}
             />
           </li>

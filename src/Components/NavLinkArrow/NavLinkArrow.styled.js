@@ -8,8 +8,10 @@ grid-area: button;
     position: relative;
     margin-top: auto;
     text-decoration: none;
+    text-align: center;
     display: inline-block;
     max-width: fit-content;
+    min-width: 160px;
     box-sizing: border-box;
     border: 1px solid black;
     padding: 14px 20px;
@@ -19,6 +21,8 @@ grid-area: button;
     transition: all 0.3s linear;
 
     @media screen and (max-width: 1023px) {
+      padding: 10px 15px;
+      min-width: 120px;
       font-size: 14px;
     }
 

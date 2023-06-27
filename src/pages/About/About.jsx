@@ -1,175 +1,23 @@
-import React from 'react';
+import React, { useContext } from "react";
 import BannerInfo from "../../Components/BannerInfo/BannerInfo";
 import Banner from "../../Components/Banner/Banner";
-import brand from "../../Assets/Images/brand.webp";
-import art from "../../Assets/Images/art.webp";
-import media from "../../Assets/Images/media.webp";
-import web from "../../Assets/Images/web.webp";
 import NavLinkArrow from "../../Components/NavLinkArrow/NavLinkArrow";
-
+import { works, facts } from '../../data/data';
+import useTranslate from "../../hooks/use-translate";
+import useSelector from "../../hooks/use-selector";
 
 const About = () => {
-  const works = [
-    {
-      title: "Фирменный стиль",
-      link: "/branding",
-      image: brand,
-      color: '#000',
-      text: [
-        {
-          info: "Удачно разработанные логотип и фирменный стиль делают продукты компании отличающимися от конкурентов, узнаваемыми при одном взгляде. Целостный образ вашей компании, получивший визуальное воплощение в фирменном стиле, поможет укреплению деловой репутации, повысит престиж среди партнеров, клиентов и конкурентов. При вашем желании результатом разработки станет гайд-лайн/брендук с графическими изображениями и правилами их использования, что станет эффективным инструментом в руках маркетинговой службы.",
-        },
-      ],
-      stages: [
-        {
-          icon: "icon-hands",
-          text: "Заполнение брифа заказчиком, предоплата 50%",
-        },
-        {
-          icon: "icon-shield",
-          text: "Подбор референсов, разработка стратегии",
-        },
-        {
-          icon: "icon-pencil",
-          text: "Создание логотипа с нуля, без использования стоковой графики",
-        },
-        {
-          icon: "icon-eye",
-          text: "3 варианта исполнения с примерами использования",
-        },
-        {
-          icon: "icon-pen",
-          text: "Доработка выбранного заказчиком направления",
-        },
-      ],
-    },
-    {
-      title: "Полиграфия",
-      link: "/polygraphy",
-      color: '#000',
-      image: art,
-      text: [
-        {
-          info: "Реклама в интернете вытесняет рекламу в прессе. Но полиграфический дизайн остается востребованным. Необходимость в годовых очетах, вывесках, билбордах, фирменной упаковке товаров, выпуске скидочных карт, рассылке праздничных подарков клиентам и партнерам, организации выставок и других мероприятий остается до сих пор.",
-        },
-        {
-          info: "Наши дизайнеры имеют профильное полиграфическое образование, и обладают редкими для современных реалий плюсами — любят бумагу, буквы, внимательны в верстке многостраничных изданий, также могут подготовить макет для печати.",
-        },
-      ],
-      stages: [
-        {
-          icon: "icon-hands",
-          text: "Предоставление текстов и фото-изображений заказчиком, предоплата 50%",
-        },
-        {
-          icon: "icon-shield",
-          text: "Подбор референсов, обсуждение деталей работы",
-        },
-        {
-          icon: "icon-pencil",
-          text: "Подготовка 1-2 концепций макета",
-        },
-        {
-          icon: "icon-maket",
-          text: "Верстка утвержденного заказчиком варианта",
-        },
-        {
-          icon: "icon-paper",
-          text: "Подготовка к печати с учетом требований типографии",
-        },
-      ],
-    },
-    {
-      title: "Презентация",
-      link: "/presentation",
-      image: media,
-      color: '#fff',
-      text: [
-        {
-          info: "Основное предназначение презентации — структурировать информацию, дополнить рассказ визуальными образами, статистикой и тезисами.",
-        },
-        {
-          info: "Менеджеры по продажам, директоры, спикеры используют слайды, чтобы сделать предложение убедительным и продающим. Продающий материал, расскажет о компании, покажет ее конкурентные преимущества, объяснит суть бизнеса. Для таких документов разрабатывается профессиональный дизайн, каждый элемент которого работает на создание у клиента или партнера положительного образа фирмы. ",
-        },
-      ],
-      stages: [
-        {
-          icon: "icon-hands",
-          text: "Предоставление текстов и фото-изображений заказчиком, предоплата 50%",
-        },
-        {
-          icon: "icon-shield",
-          text: "Подбор референсов, разработка структуры при необходимости",
-        },
-        {
-          icon: "icon-pencil",
-          text: "Подготовка 2 концепций с основными элементами оформления",
-        },
-        {
-          icon: "icon-maket",
-          text: "Верстка утвержденного заказчиком варианта",
-        },
-        {
-          icon: "icon-web",
-          text: "Подготовка к печати или электронной версии",
-        },
-      ],
-    },
-    {
-      title: "Веб дизайн",
-      link: "/web",
-      image: web,
-      color: '#000',
-      text: [
-        {
-          info: "Качественный дизайн, понятный интерфейс, удобство пользования, корректное отображение на каждом устройстве – все это слагаемые успеха любой компании, факторы, от которых напрямую зависит посещаемость сайта. Мы создаем уникальный и конкурентоспособный визуал, который становится отличным помощником в ведении бизнеса. Мы можем сделать дизайн лендинга или полноценного сайта и сверстать его",
-        },
-      ],
-      stages: [
-        {
-          icon: "icon-hands",
-          text: "Предоставление текстов и фото-изображений заказчиком, предоплата 50%",
-        },
-        {
-          icon: "icon-shield",
-          text: "Прототипирование (разработка структуры) опционально",
-        },
-        {
-          icon: "icon-pencil",
-          text: "Дизайн главной страницы сайта",
-        },
-        {
-          icon: "icon-maket",
-          text: "Дизайн остальных страниц/экранов лендинга",
-        },
-        {
-          icon: "icon-web",
-          text: "Верстка сайта веб-разработчиком опционально",
-        },
-      ],
-      children: "привет",
-    },
-  ];
 
-  const facts = [
-    {
-      number: "100+",
-      fact: "реализованных проектов",
-    },
-    {
-      number: "10+",
-      fact: "лет в сфере графического дизайна",
-    },
-    {
-      number: "50+",
-      fact: "довольных заказчиков",
-    },
-  ];
+  const { t, oT } = useTranslate();
+
+  const select = useSelector(state => ({
+    lang: state.locale.lang
+  }))
 
   return (
     <section className="about">
       <div className="about__info">
-        <h1>О нас</h1>
+        <h1>{t('about.title')}</h1>
         <div className="about__text">
           <p>
             Мы — небольшая команда, которая любит свое дело и живет им! За
@@ -183,40 +31,48 @@ const About = () => {
             сохраняем свой уникальный стиль. Ответственный подход и точность в
             каждой детали — залог успешного сотрудничества.
           </p>
-          <NavLinkArrow title={"скачать презентацию"} link={"http://pictdesign.ru/wp-content/uploads/2023/03/pict_pres.pdf"} alignSelf={true} />
+          <NavLinkArrow
+            title={t('presentation')}
+            link={
+              "http://pictdesign.ru/wp-content/uploads/2023/03/pict_pres.pdf"
+            }
+            alignSelf={true}
+          />
         </div>
         {facts.map((fact, i) => {
           return (
             <div className="about__fact" key={i}>
               <strong>{fact.number}</strong>
-              <span>{fact.fact}</span>
+              {oT(fact.fact.ru, fact.fact.en)}
             </div>
           );
         })}
       </div>
-      <ul className='banner-list'>
-      {works.map((work, i) => {
-        return (
-          <li key={i}>
-            <Banner
-              title={work.title}
-              link={work.link}
-              image={work.image}
-              color={work.color}
-              alignSelf="flex-start"
-            />
-            <BannerInfo
-              text={work.text}
-              stages={work.stages}
-              children={work.children}
-            ></BannerInfo>
-          </li>
-        );
-      })}
+      <ul className="banner-list">
+        {works.map((work, i) => {
+          return (
+            <li key={i}>
+              <Banner
+                title={work.title}
+                link={work.link}
+                image={work.image}
+                color={work.color}
+                alignSelf="flex-start"
+              />
+              <BannerInfo
+                text={work.text}
+                stages={work.stages}
+                children={work.children}
+              ></BannerInfo>
+            </li>
+          );
+        })}
       </ul>
       <section className="presentation">
-        <div></div>
-        <NavLinkArrow title={"скачать презентацию"} link={"http://pictdesign.ru/wp-content/uploads/2023/03/pict_pres.pdf"} />
+        <NavLinkArrow
+          title={t('presentation')}
+          link={"http://pictdesign.ru/wp-content/uploads/2023/03/pict_pres.pdf"}
+        />
       </section>
     </section>
   );

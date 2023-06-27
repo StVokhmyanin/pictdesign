@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination, Navigation } from "swiper";
 import "swiper/swiper.min.css";
@@ -8,8 +8,12 @@ import "swiper/modules/navigation/navigation.min.css";
 import StyledMainSwiper from "./MainSwiper.styled";
 import NavLinkArrow from "../NavLinkArrow/NavLinkArrow";
 import { NavLink } from "react-router-dom";
+import useTranslate from "../../hooks/use-translate";
 
 const MainSwiper = ({ projects = [] }) => {
+
+  const { t, oT } = useTranslate();
+
   return (
     <StyledMainSwiper>
       <Swiper
@@ -52,22 +56,30 @@ const MainSwiper = ({ projects = [] }) => {
                 alt={project.title.rendered}
               />
               <div className="slider__info">
-                <NavLink className="slider__title-link" to={`/project/${project.slug}`}>
+                <NavLink
+                  className="slider__title-link"
+                  to={`/project/${project.slug}`}
+                >
                   <h2 style={{ color: project.acf["post_slider_title_color"] }}>
-                    {project.title.rendered}
+                    {oT(project.title.rendered, project.acf["eng_title"])}
                   </h2>
                   <div
                     className="slider__excerpt"
-                    style={{ color: project.acf["post_slider_title_color"] }}
+                    style={{
+                      color: project.acf["post_slider_title_color"],
+                    }}
                     dangerouslySetInnerHTML={{
-                      __html: project.excerpt.rendered,
+                      __html: oT(
+                        project.excerpt.rendered,
+                        project.acf["eng_description"]
+                      ),
                     }}
                   />
                 </NavLink>
                 <NavLinkArrow
-                  title={"посмотреть"}
+                  title={t('button.look')}
                   link={`/project/${project.slug}`}
-                  alignSelf='flex-start'
+                  alignSelf="flex-start"
                 />
               </div>
             </SwiperSlide>

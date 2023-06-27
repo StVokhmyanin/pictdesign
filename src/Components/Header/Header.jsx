@@ -4,13 +4,13 @@ import Logo from "../Logo/Logo";
 import CategoryList from "../CategoryList/CategoryList";
 import HeaderButton from "./HeaderButton";
 import { useLocation } from "react-router-dom";
-import { CategoryContext } from "../../App/App";
-import { useLanguage } from "../../hooks/useLanguage";
+import useTranslate from "../../hooks/use-translate";
 
-const Header = () => {
+const Header = ({categories}) => {
 
   const { pathname } = useLocation();
-  const categories = useContext(CategoryContext);
+
+  const {t} = useTranslate();
 
   const [activeHeader, setActiveHeader] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(false);
@@ -45,10 +45,6 @@ const Header = () => {
     setActiveSubMenu(false);
   }, [pathname]);
 
-  const projectLink = useLanguage('Проекты', 'Projects');
-  const contactLink = useLanguage('Контакты', 'Contacts');
-  const aboutLink = useLanguage('О нас', 'About');
-
   return (
     <>
       <HeaderButton isActive={activeHeader} setIsActive={setHeader} />
@@ -66,8 +62,7 @@ const Header = () => {
         <Logo />
         <ul className="navigation__list">
           <li className="navigation__item navigation__item_bold">
-            <NavigationLink title={aboutLink} link="/about" />
-
+            <NavigationLink title={t('about.title')} link="/about" />
           </li>
           <li
             className="navigation__item navigation__item_bold"
@@ -76,13 +71,14 @@ const Header = () => {
             }}
           >
             <div className="navigation__link navigation__button">
-              {projectLink}
-              <CategoryList active={activeSubMenu} categories={categories} />
+              {t('projects.title')}
+              <div className={`header__cat-container ${activeSubMenu? 'header__cat-container_active' : ''}`}>
+                <CategoryList categories={categories} />
+              </div>
             </div>
           </li>
           <li className="navigation__item navigation__item_bold">
-            <NavigationLink title={contactLink} link="/contact" />
-
+            <NavigationLink title={t('contact.title')} link="/contact" />
           </li>
         </ul>
       </header>

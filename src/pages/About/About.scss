@@ -137,6 +137,7 @@
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "empty button";
     column-gap: 50px;
 
     @include desktop {
