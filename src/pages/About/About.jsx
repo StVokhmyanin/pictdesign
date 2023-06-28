@@ -71,7 +71,7 @@ const About = () => {
       <section className="presentation">
         <NavLinkArrow
           title={t('presentation')}
-          link={"http://pictdesign.ru/wp-content/uploads/2023/03/pict_pres.pdf"}
+          link={"http://pictdesign.ru/wp-content/uploads/2023/06/PICT_2023.pdf"}
         />
       </section>
     </section>

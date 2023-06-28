@@ -3,7 +3,7 @@ import NavigationLink from "../NavigationLink/NavigationLink";
 import FooterLogo from "../FooterLogo/FooterLogo";
 import useTranslate from "../../hooks/use-translate";
 import CategoryList from "../CategoryList/CategoryList";
-import { footerContacts } from "../../data/data";
+import { contacts } from "../../data/data";
 
 const Footer = ({categories}) => {
 
@@ -22,7 +22,7 @@ const Footer = ({categories}) => {
           <NavigationLink title={t('contact.title')} link="/Contact" />
         </h3>
         <ul className="footer__list">
-          {footerContacts.map((contact, i) => {
+          {contacts.map((contact, i) => {
             return (
               <li key={i}>
                 <NavigationLink

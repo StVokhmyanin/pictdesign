@@ -7,41 +7,26 @@ import art from "../Assets/Images/art.webp";
 import media from "../Assets/Images/media.webp";
 import web from "../Assets/Images/web.webp";
 
-export const footerContacts = [
+export const contacts = [
   {
     title: "Telegram",
-    link: "https://t.me/pictdesign",
+    icon: telegram,
+    link: "https://t.me/pictdesignru",
   },
   {
     title: "WhatsApp",
-    link: "https://t.me/pictdesign",
+    icon: whatsapp,
+    link: "https://wa.me/79302244143",
   },
   {
     title: "Instagram",
-    link: "https://t.me/pictdesign",
+    icon: instagram,
+    link: "https://instagram.me/pictdesign",
   },
   {
     title: "E-mail",
-    link: "https://t.me/pictdesign",
-  },
-];
-
-export const contacts = [
-  {
-    icon: whatsapp,
-    link: "https://wa.link/ur25zn",
-  },
-  {
-    icon: telegram,
-    link: "https://t.me/pictdesign",
-  },
-  {
-    icon: instagram,
-    link: "https://instagram.com/pict.agency",
-  },
-  {
     icon: email,
-    link: "mailto:ask@pict.design",
+    link: "mailto:ask@pictdesign.ru",
   },
 ];
 
@@ -89,6 +74,7 @@ export const works = [
     text: [
       {
         ru: "Удачно разработанные логотип и фирменный стиль делают продукты компании отличающимися от конкурентов, узнаваемыми при одном взгляде. Целостный образ вашей компании, получивший визуальное воплощение в фирменном стиле, поможет укреплению деловой репутации, повысит престиж среди партнеров, клиентов и конкурентов. При вашем желании результатом разработки станет гайд-лайн/брендук с графическими изображениями и правилами их использования, что станет эффективным инструментом в руках маркетинговой службы.",
+        en: ""
       },
     ],
     stages: [
